@@ -6,15 +6,14 @@ const
     isCI = require('is-ci');
 
 exports.config = {
-    baseUrl: 'https://juliemr.github.io/',
-    //basedUrl: 'https://beta.plus.europepmc.org/login?next=/dashboard',
+    //baseUrl: 'https://juliemr.github.io/',
+    basedUrl: 'https://beta.plus.europepmc.org/login?next=/dashboard',
 
     chromeDriver: require(`chromedriver/lib/chromedriver`).path,
 
     SELENIUM_PROMISE_MANAGER: false,
 
-    directConnect: false,
-    seleniumAddress: 'http://193.62.52.179:4444/wd/hub',
+    directConnect: true,
 
     // https://github.com/angular/protractor/blob/master/docs/timeouts.md
     allScriptsTimeout: 110000,
