@@ -1,0 +1,5 @@
+PMC		emss-90001.xml
+IMGsmall	1	emss-90001-f001.gif
+IMGview	1	emss-90001-f001.jpg
+IMGprint	1	emss-90001-f001.tif
+supplement_tag	Supplementary Material	NIHMS90001-supplement-Supplementary_Material.pdf
