@@ -1,7 +1,7 @@
 const
     { ConsoleReporter } = require('@serenity-js/console-reporter'),
     { ArtifactArchiver } = require('@serenity-js/core'),
-    { Photographer, TakePhotosOfInteractions } = require('@serenity-js/protractor'),
+    { Photographer, TakePhotosOfInteractions, TakePhotosOfFailures } = require('@serenity-js/protractor'),
     { SerenityBDDReporter } = require('@serenity-js/serenity-bdd'),
     isCI = require('is-ci');
 
@@ -27,8 +27,8 @@ exports.config = {
         runner: 'cucumber',
         crew: [
             ArtifactArchiver.storingArtifactsAt('./target/site/serenity'),
-            ConsoleReporter.forDarkTerminals(),
-            Photographer.whoWill(TakePhotosOfInteractions),     // or Photographer.whoWill(TakePhotosOfFailures),
+            //ConsoleReporter.forDarkTerminals(),
+            //Photographer.whoWill(TakePhotosOfInteractions),     // or Photographer.whoWill(TakePhotosOfFailures), TakePhotosOfInteractions
             new SerenityBDDReporter(),
         ]
     },
