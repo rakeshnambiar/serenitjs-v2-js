@@ -1,18 +1,16 @@
 //'use strict';
 
-
 const
     loginPage = require('../../pages/login.page'),
     landingPage = require('../../pages/landing.page'),
     assert = require('../../utils/assert').assert;
 
-const {Given, When, Then, After, Before} = require('cucumber');
-const {actorCalled, engage} = require('@serenity-js/core');
-const {TakeScreenshot, Navigate} = require('@serenity-js/protractor');
-const {equals, Check} = require("@serenity-js/assertions");
 const {Actors} = require("../support/screenplay");
-const {Log} = require("@serenity-js/core/src/screenplay/interactions/Log");
-const {Website} = require("@serenity-js/protractor/src/screenplay/questions/Website");
+const { Given, When, Then, After, Before } = require('cucumber');
+const { actorCalled, engage } = require('@serenity-js/core');
+const { BrowseTheWeb, TakeScreenshot, Navigate } = require('@serenity-js/protractor');
+const { equals, Check } = require("@serenity-js/assertions");
+const { protractor } = require('protractor');
 
 let password;
 let email;
@@ -25,14 +23,22 @@ let reviewer_password;
 
 Before(() => engage(new Actors()));
 
-After(scenario => actorCalled('Inspector').attemptsTo(
-    Check.whether(scenario.result.status, equals('failed').describedAs('Failure reason by the end of the test'))
-        .andIfSo(TakeScreenshot.of(scenario.pickle.name))
-));
+/*After(scenario =>
+    actorCalled('Inspector')
+        .whoCan(BrowseTheWeb.using(protractor.browser))
+        .attemptsTo(
+            TakeScreenshot.of(scenario.pickle.name)
+        ));*/
 
-// After(scenario => actorCalled('Inspector').attemptsTo(
-//     TakeScreenshot.of(scenario.pickle.name)
-// ));
+After(scenario =>
+    actorCalled('Inspector')
+        .whoCan(BrowseTheWeb.using(protractor.browser))
+        .attemptsTo(
+            Check.whether(scenario.result.status, equals('failed').describedAs('Failure reason by the end of the test'))
+                .andIfSo(
+                    TakeScreenshot.of(scenario.pickle.name)
+                )
+        ));
 
 Given(/^I am an Admin user$/, async () => {
     await actorCalled('Inspector').attemptsTo(Navigate.to('/'),);
