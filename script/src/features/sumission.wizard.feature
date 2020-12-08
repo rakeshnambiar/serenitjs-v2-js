@@ -6,7 +6,10 @@ Feature: Submit new Manuscript through xPub
 
   @RegressionTest
   Scenario:  TC#02 - To verify the login functionality of Admin user
-    Given I am an Admin user
-    When I login to the xPub system with the admin credential
-      | admin | xx |
-    Then I should able to see the xPub landing page
+    Given a step that passes
+    And a step that fails
+
+#    Given I am an Admin user
+#    When I login to the xPub system with the admin credential
+#      | admin | xx |
+#    Then I should able to see the xPub landing page

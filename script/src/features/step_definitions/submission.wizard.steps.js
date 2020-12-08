@@ -40,14 +40,14 @@ After(scenario =>
                 )
         ));
 
-Given(/^I am an Admin user$/, async () => {
+/*Given(/^I am an Admin user$/, async () => {
     //await actorCalled('Inspector').attemptsTo(Navigate.to('/'),);
     //await actorCalled('Inspector').attemptsTo(Log.the(Website.url()))
     await loginPage.openApp();
 });
 
 When(/^I login to the xPub system with the admin credential$/, async (table) => {
-    await console.log('------------Admin user login--------------');
+    console.log('------------Admin user login--------------');
     email = table.raw().map(row => row[0]);
     password = await table.raw().map(row => row[1]);
     admin_username = email;
@@ -57,7 +57,7 @@ When(/^I login to the xPub system with the admin credential$/, async (table) => 
 });
 
 When(/^I login to the xPub system with the credential$/, async (table) => {
-    await console.log('------------Normal user login--------------');
+    console.log('------------Normal user login--------------');
     email = table.raw().map(row => row[0]);
     password = await table.raw().map(row => row[1]);
     normal_username = email;
@@ -67,7 +67,7 @@ When(/^I login to the xPub system with the credential$/, async (table) => {
 });
 
 When(/^the "([^"]*)" user re\-login again$/, async (user_type) => {
-    await console.log('------------Re-login as ' + user_type + ' user --------------');
+    console.log('------------Re-login as ' + user_type + ' user --------------');
     await loginPage.openApp();
     await browser.driver.sleep(1000);
     if (user_type === 'admin') {
@@ -80,5 +80,15 @@ When(/^the "([^"]*)" user re\-login again$/, async (user_type) => {
 });
 
 Then(/^I should able to see the xPub landing page$/, async () => {
-    await assert.isTrue(await landingPage.IsLandingPageVisible(), 'FAILED: Landing Page NOT loaded');
+    assert.isTrue(await landingPage.IsLandingPageVisible(), 'FAILED: Landing Page NOT loaded');
+});*/
+
+Given('a step that passes', () => {
+    browser.get("/");
+    console.log('step called');
 });
+
+Given('a step that fails', () => {
+    console.log('failure step called');
+    throw new Error('fail');
+})

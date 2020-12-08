@@ -1,3 +1,4 @@
+/*
 //'use strict';
 
 const loginPage = function () {
@@ -16,7 +17,7 @@ const loginPage = function () {
             await browser.executeScript('window.localStorage.clear();');
             await browser.executeScript('window.sessionStorage.clear();');
             await browser.driver.manage().deleteAllCookies();
-            await console.log('Application URL - ' + await browser.getCurrentUrl());
+            console.log('Application URL - ' + await browser.getCurrentUrl());
             await browser.manage().window().maximize();
             //let menus = await browser.element.all(by.xpath('//div/h3'));
             //await console.log('menu count' + menus.length);
@@ -27,8 +28,8 @@ const loginPage = function () {
 
     po.userLogin = async (username, password) => {
         try {
-            await console.log('Username - ' + username);
-            await console.log('Password - ' + password);
+            console.log('Username - ' + username);
+            console.log('Password - ' + password);
             await browser.element(po.Login_User_Name).sendKeys(username.toString());
             await browser.element(po.Login_Password).sendKeys(password.toString());
             //await browser.actions().mouseMove(element).mouseMove({x: 50, y: 0}).perform();
@@ -91,3 +92,4 @@ const loginPage = function () {
 };
 
 module.exports = new loginPage();
+*/
