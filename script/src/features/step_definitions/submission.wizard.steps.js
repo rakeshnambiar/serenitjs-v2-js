@@ -5,7 +5,7 @@ const
     landingPage = require('../../pages/landing.page'),
     assert = require('../../utils/assert').assert;
 
-const {Actors} = require("../support/screenplay");
+//const {Actors} = require("../support/screenplay");
 const { Given, When, Then, After, Before } = require('cucumber');
 const { actorCalled, engage } = require('@serenity-js/core');
 const { BrowseTheWeb, TakeScreenshot, Navigate } = require('@serenity-js/protractor');
@@ -21,7 +21,7 @@ let normal_password;
 let reviewer_username;
 let reviewer_password;
 
-Before(() => engage(new Actors()));
+//Before(() => engage(new Actors()));
 
 /*After(scenario =>
     actorCalled('Inspector')
@@ -41,7 +41,7 @@ After(scenario =>
         ));
 
 Given(/^I am an Admin user$/, async () => {
-    await actorCalled('Inspector').attemptsTo(Navigate.to('/'),);
+    //await actorCalled('Inspector').attemptsTo(Navigate.to('/'),);
     //await actorCalled('Inspector').attemptsTo(Log.the(Website.url()))
     await loginPage.openApp();
 });

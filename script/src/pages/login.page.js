@@ -11,15 +11,15 @@ const loginPage = function () {
 
     po.openApp = async () => {
         try {
-            let xx = await browser.getCurrentUrl();
             await browser.get('/login');
+            let xx = await browser.getCurrentUrl();
             await browser.executeScript('window.localStorage.clear();');
             await browser.executeScript('window.sessionStorage.clear();');
             await browser.driver.manage().deleteAllCookies();
             await console.log('Application URL - ' + await browser.getCurrentUrl());
             await browser.manage().window().maximize();
-            let menus = await browser.element.all(by.xpath('//div/h3'));
-            await console.log('menu count' + menus.length);
+            //let menus = await browser.element.all(by.xpath('//div/h3'));
+            //await console.log('menu count' + menus.length);
         }catch (e) {
             throw new Error('ERROR: In the openApp function');
         }
